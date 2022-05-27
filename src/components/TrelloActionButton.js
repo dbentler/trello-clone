@@ -1,5 +1,7 @@
 import React from "react";
-import { Icon } from "@mui/material";
+import { Icon, TextareaAutosize } from "@mui/material";
+import Textarea from "react-textarea-autosize";
+import { Card } from "@mui/material";
 
 class TrelloActionButton extends React.Component {
     state = {
@@ -12,6 +14,17 @@ class TrelloActionButton extends React.Component {
         });
     };
 
+    closeForm = (e) => {
+        this.setState({
+            formOpen: false
+        });
+    };
+
+    handleInputChange = e => {
+        this.setState({
+            text: e.target.value
+        })
+    };
     renderAddButton = () => {
         const { list } = this.props;
 
@@ -36,7 +49,35 @@ class TrelloActionButton extends React.Component {
     };
 
     renderForm = () => {
-        return <p>Hello</p>
+        const {list} = this.props;
+
+        const placeholder = list ? "Enter List Title..." : "Enter a title for this card";
+
+        const buttonTitle = list ? "Add List" : "Add Card";
+
+        return <div>
+            <Card style={{
+                minHeight: 80,
+                minWidth: 272,
+                padding: "6px 8px 2px"
+            }}
+            >
+                <TextareaAutosize 
+                placeholder={placeholder} 
+                autoFocus 
+                onBlur={this.closeForm}
+                value={this.state.text}
+                onChange={this.handleInputChange}
+                style={{
+                   resize: "none",
+                   width: "100%",
+                   overflow: "visible",
+                   outline: "none",
+                   border: "none" 
+                }}
+                />
+            </Card>
+        </div>
     };
 
     render() {
