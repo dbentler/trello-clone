@@ -1,6 +1,5 @@
 import React from "react";
 import { Icon, TextareaAutosize } from "@mui/material";
-import Textarea from "react-textarea-autosize";
 import { Card } from "@mui/material";
 
 class TrelloActionButton extends React.Component {
