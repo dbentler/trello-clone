@@ -1,11 +1,13 @@
 import React from "react";
 import TrelloCard from "./TrelloCard";
 
-const TrelloList = ({title}) => {
+const TrelloList = ({ title, cards }) => {
     return(
         <div style={styles.container}>
             <h4>{title}</h4>
-            <TrelloCard />
+            { cards && cards.length ? cards.map(card => (
+                <TrelloCard key={cards.id} text={cards.text}/> 
+            )) : null}
         </div>
     )
 };
