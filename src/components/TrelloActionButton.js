@@ -1,6 +1,7 @@
 import React from "react";
 import { Icon, TextareaAutosize } from "@mui/material";
 import { Card } from "@mui/material";
+import { Button } from "@mui/material";
 
 class TrelloActionButton extends React.Component {
     state = {
@@ -76,6 +77,15 @@ class TrelloActionButton extends React.Component {
                 }}
                 />
             </Card>
+            <div styles={styles.formButtonGroup}>
+                <Button 
+                variant="contained" 
+                style={{ color: "white", backgroundColor: "#5aac44" }}
+                >{
+                buttonTitle}{" "}
+                </Button>
+                <Icon style={{ marginLeft: 8, cursor:"pointer", }}>close</Icon>
+            </div>
         </div>
     };
 
@@ -93,6 +103,11 @@ const styles = {
         height: 36,
         width: 272,
         paddingLeft: 10
+    },
+    formButtonGroup: {
+        margin: 8,
+        display: "flex",
+        alignItems: "center"
     }
 }
 
