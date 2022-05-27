@@ -6,13 +6,19 @@ import { CardContent } from "@mui/material";
 const TrelloCard = ({ text }) => {
     return (
         <Card>
-        <CardContent>
+        <CardContent style={styles.cardContainer}>
             <Typography gutterButton>
-                {text}
+                { text }
             </Typography>
         </CardContent>
         </Card>
     );
+};
+
+const styles = {
+    cardContainer: {
+        marginBottom: 0
+    }
 }
 
 export default TrelloCard;
