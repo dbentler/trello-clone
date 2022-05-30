@@ -1,4 +1,4 @@
-# Trello-Clone with React + React Redux
+# Trello-Clone with React + React Redux (**WIP WIP WIP**)
 In order to hone my skills with the React.js framework, I decided to learn how to builld a Trello board
 via React and the React Redux frameworks (and material theme).
 
