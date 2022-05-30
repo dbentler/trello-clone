@@ -2,6 +2,8 @@ import React from "react";
 import { Icon, TextareaAutosize } from "@mui/material";
 import { Card } from "@mui/material";
 import { Button } from "@mui/material";
+import { connect } from "react-redux";
+import { addList } from "../actions";
 
 class TrelloActionButton extends React.Component {
     state = {
@@ -23,8 +25,19 @@ class TrelloActionButton extends React.Component {
     handleInputChange = e => {
         this.setState({
             text: e.target.value
-        })
+        });
     };
+
+    handleAddList = () => {
+        const { dispatch } = this.props;
+        const { text } = this.state;
+
+        if(text){
+            dispatch(addList(text));
+        }
+        return;
+    };
+
     renderAddButton = () => {
         const { list } = this.props;
 
@@ -78,7 +91,8 @@ class TrelloActionButton extends React.Component {
                 />
             </Card>
             <div styles={styles.formButtonGroup}>
-                <Button 
+                <Button
+                onMouseDown={this.handleAddList}
                 variant="contained" 
                 style={{ color: "white", backgroundColor: "#5aac44" }}
                 >{
@@ -111,4 +125,4 @@ const styles = {
     }
 }
 
-export default TrelloActionButton;
+export default connect () (TrelloActionButton);
