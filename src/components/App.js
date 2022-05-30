@@ -11,7 +11,7 @@ class App extends Component {
       <h2>Hello World</h2>
         <div style={styles.listsContainer}>
         { lists.map(list => ( 
-          <TrelloList key={list.id} title={list.title} cards={lists.cards} />
+          <TrelloList listID= {list.id} key={list.id} title={list.title} cards={lists.cards} />
         ))}
         <TrelloActionButton list />
         </div>
